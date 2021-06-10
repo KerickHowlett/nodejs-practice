@@ -1,0 +1,5 @@
+alias depcheck="npx --no-install -q depcheck"
+alias l="ls -CF"
+alias la="ls -A"
+alias ll="ls -la"
+alias reset="~/.bashrc"

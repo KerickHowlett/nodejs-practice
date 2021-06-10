@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+    node-practice-development-environment:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        env_file: .env
+        image: node-practice-development-environment-${BUILD_VERSION}
+        container_name: node-practice-development-environment
+        hostname: node-practice-development-environment
+        init: true
+        privileged: true
+        volumes:
+            - ..:/workspace:cached
+            - /var/run/docker.sock:/var/run/docker.sock:cached
+            - $DOCKER_DATA:/var/lib/docker
+        networks:
+            - node-practice-development-network
+
+networks:
+    node-practice-development-network:
+        name: node-practice-development-network
+        driver: bridge
